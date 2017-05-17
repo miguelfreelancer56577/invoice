@@ -23,4 +23,51 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+ 		<build>
+		    <pluginManagement>
+	    	<plugins>
+		        
+		        <plugin>
+		        	<!-- source: https://maven.apache.org/download.cgi# -->
+		        	<groupId>org.codehaus.mojo</groupId>
+            		<artifactId>jaxb2-maven-plugin</artifactId>
+            		<version>2.2</version>
+            		<executions>
+		                <execution>
+		                    <id>xjc</id>
+		                    <goals>
+		                        <goal>xjc</goal>
+		                    </goals>
+		                </execution>
+		            </executions>
+		            <configuration>
+		                <!--
+		                    Include the sources from 3 locations:
+		                    1) a directory (including recursively finding all files in it)
+		                    2) an explicitly named file
+		                    3) a non-existent path, which is silently ignored
+		                -->
+		                <sources>
+		                    <source>src/main/resource/xsd/Comprobante.xsd</source>
+		                </sources>
+		                
+		                <outputDirectory>src/main/java</outputDirectory>
+		                <!--
+		                    Package name of the generated sources.
+		                -->
+		                <packageName>com.mangelt.mx.reader.api</packageName>
+		
+		                <!--
+		                    Copy all source XSDs into the generate artifact.
+		                    Place them at the supplied xsdPathWithinArtifact, that is within the given directory.
+		                -->
+		                <!-- <xsdPathWithinArtifact>src/main/resources</xsdPathWithinArtifact> -->
+		            </configuration>
+		        </plugin>
+		        
+		      </plugins>
+		    </pluginManagement>
+  		</build>
+  
 </project>
