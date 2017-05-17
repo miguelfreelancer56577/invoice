@@ -151,4 +151,12 @@ public class Impuestos {
         this.totalImpuestosTrasladados = value;
     }
 
+	@Override
+	public String toString() {
+		return "Impuestos [retenciones=" + retenciones + ", traslados="
+				+ traslados + ", totalImpuestosRetenidos="
+				+ totalImpuestosRetenidos + ", totalImpuestosTrasladados="
+				+ totalImpuestosTrasladados + "]";
+	}
+    
 }

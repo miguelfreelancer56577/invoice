@@ -670,4 +670,21 @@ public class Comprobante {
         this.tipoDeComprobante = value;
     }
 
+	@Override
+	public String toString() {
+		return "Comprobante [emisor=" + emisor + ", receptor=" + receptor
+				+ ", conceptos=" + conceptos + ", impuestos=" + impuestos
+				+ ", complemento=" + complemento + ", certificado="
+				+ certificado + ", noCertificado=" + noCertificado
+				+ ", condicionesDePago=" + condicionesDePago + ", descuento="
+				+ descuento + ", subTotal=" + subTotal + ", formaDePago="
+				+ formaDePago + ", serie=" + serie + ", version=" + version
+				+ ", folio=" + folio + ", numCtaPago=" + numCtaPago
+				+ ", sello=" + sello + ", fecha=" + fecha
+				+ ", lugarExpedicion=" + lugarExpedicion + ", moneda=" + moneda
+				+ ", tipoCambio=" + tipoCambio + ", total=" + total
+				+ ", metodoDePago=" + metodoDePago + ", tipoDeComprobante="
+				+ tipoDeComprobante + "]";
+	}
+
 }
