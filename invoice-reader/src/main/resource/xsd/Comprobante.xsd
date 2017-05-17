@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema attributeFormDefault="unqualified" 
+elementFormDefault="qualified" 
+targetNamespace="http://www.sat.gob.mx/cfd/3" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:import namespace="http://www.sat.gob.mx/implocal" 
+  schemaLocation="www.sat.gob.mx_implocal.xsd"/>
+<xs:import namespace="http://www.sat.gob.mx/TimbreFiscalDigital" 
+  schemaLocation="www.sat.gob.mx_TimbreFiscalDigital.xsd"/>
+<xs:import namespace="http://www.sat.gob.mx/aerolineas" 
+  schemaLocation="www.sat.gob.mx_aerolineas.xsd"/>
+
+<xs:element name="DomicilioFiscal">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="codigoPostal"/>
+          <xs:attribute type="xs:string" name="pais"/>
+          <xs:attribute type="xs:string" name="estado"/>
+          <xs:attribute type="xs:string" name="municipio"/>
+          <xs:attribute type="xs:string" name="colonia"/>
+          <xs:attribute type="xs:string" name="calle"/>
+          <xs:attribute type="xs:string" name="localidad"/>
+          <xs:attribute type="xs:string" name="noInterior"/>
+          <xs:attribute type="xs:string" name="noExterior"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExpedidoEn">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="codigoPostal"/>
+          <xs:attribute type="xs:string" name="pais"/>
+          <xs:attribute type="xs:string" name="estado"/>
+          <xs:attribute type="xs:string" name="municipio"/>
+          <xs:attribute type="xs:string" name="colonia"/>
+          <xs:attribute type="xs:string" name="calle"/>
+          <xs:attribute type="xs:string" name="localidad"/>
+          <xs:attribute type="xs:string" name="noInterior"/>
+          <xs:attribute type="xs:string" name="noExterior"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegimenFiscal">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="Regimen"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Domicilio">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:short" name="codigoPostal"/>
+          <xs:attribute type="xs:string" name="pais"/>
+          <xs:attribute type="xs:string" name="estado"/>
+          <xs:attribute type="xs:string" name="municipio"/>
+          <xs:attribute type="xs:string" name="localidad"/>
+          <xs:attribute type="xs:string" name="colonia"/>
+          <xs:attribute type="xs:string" name="calle"/>
+          <xs:attribute type="xs:string" name="noInterior"/>
+          <xs:attribute type="xs:string" name="noExterior"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Concepto">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:long" name="noIdentificacion" use="optional"/>
+          <xs:attribute type="xs:string" name="unidad" use="optional"/>
+          <xs:attribute type="xs:float" name="cantidad" use="optional"/>
+          <xs:attribute type="xs:float" name="importe" use="optional"/>
+          <xs:attribute type="xs:float" name="valorUnitario" use="optional"/>
+          <xs:attribute type="xs:string" name="descripcion" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Retencion">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="impuesto" use="optional"/>
+          <xs:attribute type="xs:float" name="importe" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Traslado">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:float" name="importe" use="optional"/>
+          <xs:attribute type="xs:string" name="tasa" use="optional"/>
+          <xs:attribute type="xs:string" name="impuesto" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Retenciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns:Retencion" maxOccurs="unbounded" minOccurs="0" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Traslados">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns:Traslado" maxOccurs="unbounded" minOccurs="0" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Emisor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns:DomicilioFiscal" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+        <xs:element ref="ns:ExpedidoEn" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+        <xs:element ref="ns:RegimenFiscal" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="rfc"/>
+      <xs:attribute type="xs:string" name="nombre"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Receptor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns:Domicilio" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="rfc"/>
+      <xs:attribute type="xs:string" name="nombre"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Conceptos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns:Concepto" maxOccurs="unbounded" minOccurs="0" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Impuestos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns:Retenciones" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+        <xs:element ref="ns:Traslados" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+      </xs:sequence>
+      <xs:attribute type="xs:float" name="totalImpuestosRetenidos"/>
+      <xs:attribute type="xs:float" name="totalImpuestosTrasladados"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Complemento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="aer:Aerolineas" xmlns:aer="http://www.sat.gob.mx/aerolineas"/>
+        <xs:element ref="imp:ImpuestosLocales" xmlns:imp="http://www.sat.gob.mx/implocal"/>
+        <xs:element ref="tim:TimbreFiscalDigital" xmlns:tim="http://www.sat.gob.mx/TimbreFiscalDigital"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Comprobante">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns:Emisor" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+        <xs:element ref="ns:Receptor" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+        <xs:element ref="ns:Conceptos" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+        <xs:element ref="ns:Impuestos" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+        <xs:element ref="ns:Complemento" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="certificado"/>
+      <xs:attribute type="xs:long" name="noCertificado"/>
+      <xs:attribute type="xs:string" name="condicionesDePago"/>
+      <xs:attribute type="xs:float" name="descuento"/>
+      <xs:attribute type="xs:float" name="subTotal"/>
+      <xs:attribute type="xs:string" name="formaDePago"/>
+      <xs:attribute type="xs:string" name="serie"/>
+      <xs:attribute type="xs:float" name="version"/>
+      <xs:attribute type="xs:long" name="folio"/>
+      <xs:attribute type="xs:string" name="NumCtaPago"/>
+      <xs:attribute type="xs:string" name="sello"/>
+      <xs:attribute type="xs:dateTime" name="fecha"/>
+      <xs:attribute type="xs:string" name="LugarExpedicion"/>
+      <xs:attribute type="xs:string" name="Moneda"/>
+      <xs:attribute type="xs:string" name="TipoCambio"/>
+      <xs:attribute type="xs:float" name="total"/>
+      <xs:attribute type="xs:string" name="metodoDePago"/>
+      <xs:attribute type="xs:string" name="tipoDeComprobante"/>   
+      
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

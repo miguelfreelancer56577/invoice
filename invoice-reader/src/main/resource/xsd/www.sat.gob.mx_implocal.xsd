@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://www.sat.gob.mx/implocal" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="ImpuestosLocales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="RetencionesLocales" form="qualified">
+            <xs:complexType>
+              <xs:sequence/>
+              <xs:attribute name="ImpLocRetenido" type="xs:string" use="required"/>
+              <xs:attribute name="TasadeRetencion" type="xs:decimal" use="required"/>
+              <xs:attribute name="Importe" type="xs:decimal" use="required"/>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="TrasladosLocales" form="qualified">
+            <xs:complexType>
+              <xs:sequence/>
+              <xs:attribute name="ImpLocTrasladado" type="xs:string" use="required"/>
+              <xs:attribute name="TasadeTraslado" type="xs:decimal" use="required"/>
+              <xs:attribute name="Importe" type="xs:decimal" use="required"/>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:anySimpleType" use="required"/>
+      <xs:attribute name="TotaldeRetenciones" type="xs:decimal" use="required"/>
+      <xs:attribute name="TotaldeTraslados" type="xs:decimal" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
