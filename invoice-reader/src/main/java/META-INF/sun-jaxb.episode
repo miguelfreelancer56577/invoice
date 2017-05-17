@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
+Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2017.05.17 a las 11:13:39 AM CDT 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.sat.gob.mx/implocal">
+    <schemaBindings map="false">
+      <package name="com.mangelt.mx.reader.api"/>
+    </schemaBindings>
+    <bindings scd="tns:ImpuestosLocales">
+      <class ref="com.mangelt.mx.reader.api.ImpuestosLocales"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.sat.gob.mx/cfd/3">
+    <schemaBindings map="false">
+      <package name="com.mangelt.mx.reader.api"/>
+    </schemaBindings>
+    <bindings scd="tns:DomicilioFiscal">
+      <class ref="com.mangelt.mx.reader.api.DomicilioFiscal"/>
+    </bindings>
+    <bindings scd="tns:ExpedidoEn">
+      <class ref="com.mangelt.mx.reader.api.ExpedidoEn"/>
+    </bindings>
+    <bindings scd="tns:RegimenFiscal">
+      <class ref="com.mangelt.mx.reader.api.RegimenFiscal"/>
+    </bindings>
+    <bindings scd="tns:Domicilio">
+      <class ref="com.mangelt.mx.reader.api.Domicilio"/>
+    </bindings>
+    <bindings scd="tns:Concepto">
+      <class ref="com.mangelt.mx.reader.api.Concepto"/>
+    </bindings>
+    <bindings scd="tns:Retencion">
+      <class ref="com.mangelt.mx.reader.api.Retencion"/>
+    </bindings>
+    <bindings scd="tns:Traslado">
+      <class ref="com.mangelt.mx.reader.api.Traslado"/>
+    </bindings>
+    <bindings scd="tns:Retenciones">
+      <class ref="com.mangelt.mx.reader.api.Retenciones"/>
+    </bindings>
+    <bindings scd="tns:Traslados">
+      <class ref="com.mangelt.mx.reader.api.Traslados"/>
+    </bindings>
+    <bindings scd="tns:Emisor">
+      <class ref="com.mangelt.mx.reader.api.Emisor"/>
+    </bindings>
+    <bindings scd="tns:Receptor">
+      <class ref="com.mangelt.mx.reader.api.Receptor"/>
+    </bindings>
+    <bindings scd="tns:Conceptos">
+      <class ref="com.mangelt.mx.reader.api.Conceptos"/>
+    </bindings>
+    <bindings scd="tns:Impuestos">
+      <class ref="com.mangelt.mx.reader.api.Impuestos"/>
+    </bindings>
+    <bindings scd="tns:Complemento">
+      <class ref="com.mangelt.mx.reader.api.Complemento"/>
+    </bindings>
+    <bindings scd="tns:Comprobante">
+      <class ref="com.mangelt.mx.reader.api.Comprobante"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.sat.gob.mx/aerolineas">
+    <schemaBindings map="false">
+      <package name="com.mangelt.mx.reader.api"/>
+    </schemaBindings>
+    <bindings scd="tns:Aerolineas">
+      <class ref="com.mangelt.mx.reader.api.Aerolineas"/>
+    </bindings>
+    <bindings scd="tns:OtrosCargos">
+      <class ref="com.mangelt.mx.reader.api.OtrosCargos"/>
+    </bindings>
+    <bindings scd="tns:Cargo">
+      <class ref="com.mangelt.mx.reader.api.Cargo"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.sat.gob.mx/TimbreFiscalDigital">
+    <schemaBindings map="false">
+      <package name="com.mangelt.mx.reader.api"/>
+    </schemaBindings>
+    <bindings scd="tns:TimbreFiscalDigital">
+      <class ref="com.mangelt.mx.reader.api.TimbreFiscalDigital"/>
+    </bindings>
+  </bindings>
+</bindings>
+
