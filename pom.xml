@@ -10,5 +10,6 @@
   <modules>
   	<module>invoice-web</module>
     <module>invoice-reader</module>
+    <module>invoice-report</module>
   </modules>
 </project>
