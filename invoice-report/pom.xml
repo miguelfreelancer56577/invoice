@@ -22,5 +22,14 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>com.mangelt.mx</groupId>
+    	<artifactId>invoice-reader</artifactId>
+    </dependency>
+    <dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>3.15</version>
+	</dependency>
   </dependencies>
 </project>
