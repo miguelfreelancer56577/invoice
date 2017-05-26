@@ -15,6 +15,8 @@ public class ReaderImpl implements Reader {
 	
 	public Comprobante readInvoice(File invoice){
 		
+		System.out.println("Concurrent invoice: " + invoice.getName());
+		
 		Comprobante comprobante = null;
 		
 		try {

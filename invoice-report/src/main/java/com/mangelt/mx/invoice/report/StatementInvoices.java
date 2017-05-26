@@ -36,14 +36,30 @@ public class StatementInvoices extends WorkBookXls {
 		rowhead.createCell(0).setCellValue("Total");
 		rowhead.createCell(0).setCellValue("Efecto del Comprobante");
 		
-		
+		positionRow++;
 		
 	}
 
 	@Override
 	public void createBodyXls(List<Comprobante> invoices) {
 		
-		
+		for (Comprobante comprobante : invoices) {
+			
+			HSSFRow rowhead = sheet.createRow((short)positionRow);
+			rowhead.createCell(0).setCellValue("Folio Fiscal");
+			rowhead.createCell(0).setCellValue("RFC Emisor");
+			rowhead.createCell(0).setCellValue("Nombre o Razón Social del Emisor");
+			rowhead.createCell(0).setCellValue("RFC Receptor");
+			rowhead.createCell(0).setCellValue("Nombre o Razón Social del Receptor");
+			rowhead.createCell(0).setCellValue("Fecha de Emisión");
+			rowhead.createCell(0).setCellValue("Iva");
+			rowhead.createCell(0).setCellValue("monto");
+			rowhead.createCell(0).setCellValue("exento");
+			rowhead.createCell(0).setCellValue("Total");
+			rowhead.createCell(0).setCellValue("Efecto del Comprobante");
+			
+			positionRow++;
+		}
 
 	}
 
