@@ -28,6 +28,9 @@ public abstract class WorkBookXls extends File{
 		if(!super.exists())
 			super.createNewFile();
 		
+		workbook = new HSSFWorkbook();
+        sheet = workbook.createSheet("Sat");
+		
 	}
 
 	protected abstract void createHeadInXls();
