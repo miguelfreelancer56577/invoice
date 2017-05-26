@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.05.17 a las 11:13:39 AM CDT 
+// Generado el: 2017.05.26 a las 12:45:21 PM CDT 
 //
 
 
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlValue;
  * &lt;complexType&gt;
  *   &lt;simpleContent&gt;
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *       &lt;attribute name="noIdentificacion" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="noIdentificacion" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="unidad" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="cantidad" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
  *       &lt;attribute name="importe" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
@@ -48,7 +48,7 @@ public class Concepto {
     @XmlValue
     protected String value;
     @XmlAttribute(name = "noIdentificacion")
-    protected Long noIdentificacion;
+    protected String noIdentificacion;
     @XmlAttribute(name = "unidad")
     protected String unidad;
     @XmlAttribute(name = "cantidad")
@@ -89,10 +89,10 @@ public class Concepto {
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public Long getNoIdentificacion() {
+    public String getNoIdentificacion() {
         return noIdentificacion;
     }
 
@@ -101,10 +101,10 @@ public class Concepto {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public void setNoIdentificacion(Long value) {
+    public void setNoIdentificacion(String value) {
         this.noIdentificacion = value;
     }
 
