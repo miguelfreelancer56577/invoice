@@ -48,4 +48,22 @@ public class ReaderImpl implements Reader {
 		
 	}
 	
+	public List<Comprobante> readInvoice(List<File> invoices){
+		
+		List<Comprobante> comprobantes = new  ArrayList<Comprobante>();
+		
+		for (File invoice : invoices) {
+			
+			Comprobante comprobante = this.readInvoice(invoice);
+			
+			if(comprobante != null){
+				comprobantes.add(comprobante);
+			}
+			
+		}
+		
+		return comprobantes;
+		
+	}
+	
 }
