@@ -11,4 +11,6 @@ public interface Reader {
 	
 	List<Comprobante> readInvoice(File[] invoice);
 	
+	List<Comprobante> readInvoice(List<File> invoice);
+	
 }
