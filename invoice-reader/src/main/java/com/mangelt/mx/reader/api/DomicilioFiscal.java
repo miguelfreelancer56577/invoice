@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.05.17 a las 11:13:39 AM CDT 
+// Generado el: 2017.05.29 a las 09:10:41 AM CDT 
 //
 
 
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlValue;
  * &lt;complexType&gt;
  *   &lt;simpleContent&gt;
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *       &lt;attribute name="codigoPostal" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *       &lt;attribute name="codigoPostal" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="pais" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="estado" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="municipio" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
@@ -51,7 +51,7 @@ public class DomicilioFiscal {
     @XmlValue
     protected String value;
     @XmlAttribute(name = "codigoPostal")
-    protected Integer codigoPostal;
+    protected String codigoPostal;
     @XmlAttribute(name = "pais")
     protected String pais;
     @XmlAttribute(name = "estado")
@@ -98,10 +98,10 @@ public class DomicilioFiscal {
      * 
      * @return
      *     possible object is
-     *     {@link Integer }
+     *     {@link String }
      *     
      */
-    public Integer getCodigoPostal() {
+    public String getCodigoPostal() {
         return codigoPostal;
     }
 
@@ -110,10 +110,10 @@ public class DomicilioFiscal {
      * 
      * @param value
      *     allowed object is
-     *     {@link Integer }
+     *     {@link String }
      *     
      */
-    public void setCodigoPostal(Integer value) {
+    public void setCodigoPostal(String value) {
         this.codigoPostal = value;
     }
 
