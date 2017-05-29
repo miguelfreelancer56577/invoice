@@ -12,12 +12,17 @@ import com.mangelt.mx.reader.impl.ReaderImpl;
 
 public class Report {
 	
-	public boolean doCreate(String path){
+	public boolean doCreate(String path, String output){
 		File dir = new File(path);
-		return doCreate(dir);
+		return doCreate(dir, output);
 	}
 	
-	public boolean doCreate(File dir){
+	public boolean doCreate(String path){
+		File dir = new File(path);
+		return doCreate(dir, "report");
+	}
+	
+	public boolean doCreate(File dir, String output){
 		
 		try {
         	
@@ -64,7 +69,7 @@ public class Report {
 			
 			Reader reader = new ReaderImpl();
         	
-			StatementInvoices statementInvoices= new StatementInvoices("C:\\Users\\vn0x53q\\Documents\\SAT\\report.xls");
+			StatementInvoices statementInvoices= new StatementInvoices(dir.getAbsolutePath()+"\\"+output+".xls");
 			
 			statementInvoices.createHeadInXls();
 			
