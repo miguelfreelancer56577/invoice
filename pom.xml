@@ -13,6 +13,7 @@
   	<module>invoice-web</module>
     <module>invoice-reader</module>
     <module>invoice-report</module>
+    <module>invoice-desktop</module>
   </modules>
   
   <dependencyManagement>
