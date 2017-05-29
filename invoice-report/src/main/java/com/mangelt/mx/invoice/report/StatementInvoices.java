@@ -1,6 +1,7 @@
 package com.mangelt.mx.invoice.report;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -44,9 +45,44 @@ public class StatementInvoices extends WorkBookXls {
 	@Override
 	public void createBodyXls(List<Comprobante> invoices) {
 		
+		List<Comprobante> issued = new ArrayList<Comprobante>();
+		
+		List<Comprobante> received = new ArrayList<Comprobante>();
+		
+		List<Comprobante> withoutEffect = new ArrayList<Comprobante>();
+		
 		for (Comprobante comprobante : invoices) {
 			
-			HSSFRow rowhead = sheet.createRow((short)positionRow);
+			if(comprobante.getEmisor().getRfc().equalsIgnoreCase("torm8908224f4")){
+				issued.add(comprobante);
+				continue;
+			}
+			
+			if(comprobante.getTipoDeComprobante().equalsIgnoreCase("egreso")){
+				withoutEffect.add(comprobante);
+				continue;
+			}
+			
+			if(comprobante.getTipoDeComprobante().equalsIgnoreCase("ingreso") && comprobante.getReceptor().getRfc().equalsIgnoreCase("torm8908224f4")){
+				received.add(comprobante);
+				continue;
+			}
+			
+		}
+		
+		positionRow = printContent(issued, positionRow) + 1;
+		
+		positionRow = printContent(received, positionRow) + 1;
+		
+		printContent(withoutEffect, positionRow);
+
+	}
+	
+	public int printContent(List<Comprobante> invoices, int startPosition){
+		
+		for (Comprobante comprobante : invoices) {
+			
+			HSSFRow rowhead = sheet.createRow((short)startPosition);
 			rowhead.createCell(0).setCellValue(comprobante.getComplemento().getTimbreFiscalDigital().getUUID());
 			rowhead.createCell(1).setCellValue(comprobante.getEmisor().getRfc());
 			rowhead.createCell(2).setCellValue(comprobante.getEmisor().getNombre());
@@ -72,9 +108,10 @@ public class StatementInvoices extends WorkBookXls {
 			rowhead.createCell(9).setCellValue("Total");
 			rowhead.createCell(10).setCellValue(comprobante.getTipoDeComprobante());
 			
-			positionRow++;
+			startPosition++;
 		}
-
+		
+		return startPosition;
 	}
 
 }
