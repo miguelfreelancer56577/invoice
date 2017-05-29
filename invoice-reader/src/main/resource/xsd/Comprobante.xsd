@@ -15,7 +15,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute type="xs:int" name="codigoPostal"/>
+          <xs:attribute type="xs:string" name="codigoPostal"/>
           <xs:attribute type="xs:string" name="pais"/>
           <xs:attribute type="xs:string" name="estado"/>
           <xs:attribute type="xs:string" name="municipio"/>
@@ -32,7 +32,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute type="xs:int" name="codigoPostal"/>
+          <xs:attribute type="xs:string" name="codigoPostal"/>
           <xs:attribute type="xs:string" name="pais"/>
           <xs:attribute type="xs:string" name="estado"/>
           <xs:attribute type="xs:string" name="municipio"/>
@@ -58,7 +58,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:complexType>
       <xs:simpleContent>
         <xs:extension base="xs:string">
-          <xs:attribute type="xs:short" name="codigoPostal"/>
+          <xs:attribute type="xs:string" name="codigoPostal"/>
           <xs:attribute type="xs:string" name="pais"/>
           <xs:attribute type="xs:string" name="estado"/>
           <xs:attribute type="xs:string" name="municipio"/>
