@@ -49,6 +49,16 @@ public class App
 						
 					}
 					
+				}else{
+					
+//					it gets the file extension
+					String ext = FilenameUtils.getExtension(file.getName());
+					
+//					if it is an xml file then is added
+					if(ext.equals("xml")){
+						invoices.add(file);
+					}
+					
 				}
 				
 			}
