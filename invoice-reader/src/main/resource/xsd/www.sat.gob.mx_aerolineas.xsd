@@ -1,0 +1,29 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.sat.gob.mx/aerolineas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Cargo">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:float" name="Importe" use="optional"/>
+          <xs:attribute type="xs:string" name="CodigoCargo" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OtrosCargos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="aer:Cargo" maxOccurs="unbounded" minOccurs="0" xmlns:aer="http://www.sat.gob.mx/aerolineas"/>
+      </xs:sequence>
+      <xs:attribute type="xs:float" name="TotalCargos"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Aerolineas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="aer:OtrosCargos" xmlns:aer="http://www.sat.gob.mx/aerolineas"/>
+      </xs:sequence>
+      <xs:attribute type="xs:float" name="Version"/>
+      <xs:attribute type="xs:float" name="TUA"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

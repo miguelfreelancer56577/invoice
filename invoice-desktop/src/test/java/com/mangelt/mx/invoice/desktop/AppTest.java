@@ -1,4 +1,4 @@
-package org.invoice.reader;
+package com.mangelt.mx.invoice.desktop;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
