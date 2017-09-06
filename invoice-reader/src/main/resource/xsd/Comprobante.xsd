@@ -176,14 +176,14 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema">
         <xs:element ref="ns:Complemento" xmlns:ns="http://www.sat.gob.mx/cfd/3"/>
       </xs:sequence>
       <xs:attribute type="xs:string" name="certificado"/>
-      <xs:attribute type="xs:long" name="noCertificado"/>
+      <xs:attribute type="xs:string" name="noCertificado"/>
       <xs:attribute type="xs:string" name="condicionesDePago"/>
       <xs:attribute type="xs:float" name="descuento"/>
       <xs:attribute type="xs:float" name="subTotal"/>
       <xs:attribute type="xs:string" name="formaDePago"/>
       <xs:attribute type="xs:string" name="serie"/>
       <xs:attribute type="xs:float" name="version"/>
-      <xs:attribute type="xs:long" name="folio"/>
+      <xs:attribute type="xs:string" name="folio"/>
       <xs:attribute type="xs:string" name="NumCtaPago"/>
       <xs:attribute type="xs:string" name="sello"/>
       <xs:attribute type="xs:dateTime" name="fecha"/>
