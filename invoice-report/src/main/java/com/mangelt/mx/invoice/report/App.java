@@ -21,7 +21,7 @@ public class App
     	
     	Report report = new Report();
     	
-    	boolean result = report.doCreate("C:\\Users\\vn0x53q\\Documents\\SAT\\facturas may-jun");
+    	boolean result = report.doCreate("C:\\Users\\vn0x53q\\Documents\\SAT\\declaracion jul-ago\\emitidas");
     	
     	System.out.println(result);
     	
