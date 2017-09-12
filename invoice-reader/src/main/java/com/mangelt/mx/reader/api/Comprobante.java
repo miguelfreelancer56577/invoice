@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2017.05.17 a las 11:13:39 AM CDT 
+// Generado el: 2017.09.06 a las 02:04:29 PM CDT 
 //
 
 
@@ -35,14 +35,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element ref="{http://www.sat.gob.mx/cfd/3}Complemento"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="certificado" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="noCertificado" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="noCertificado" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="condicionesDePago" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="descuento" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
  *       &lt;attribute name="subTotal" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
  *       &lt;attribute name="formaDePago" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="serie" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="version" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
- *       &lt;attribute name="folio" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
+ *       &lt;attribute name="folio" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="NumCtaPago" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="sello" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="fecha" type="{http://www.w3.org/2001/XMLSchema}dateTime" /&gt;
@@ -83,7 +83,7 @@ public class Comprobante {
     @XmlAttribute(name = "certificado")
     protected String certificado;
     @XmlAttribute(name = "noCertificado")
-    protected Long noCertificado;
+    protected String noCertificado;
     @XmlAttribute(name = "condicionesDePago")
     protected String condicionesDePago;
     @XmlAttribute(name = "descuento")
@@ -97,7 +97,7 @@ public class Comprobante {
     @XmlAttribute(name = "version")
     protected Float version;
     @XmlAttribute(name = "folio")
-    protected Long folio;
+    protected String folio;
     @XmlAttribute(name = "NumCtaPago")
     protected String numCtaPago;
     @XmlAttribute(name = "sello")
@@ -267,10 +267,10 @@ public class Comprobante {
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public Long getNoCertificado() {
+    public String getNoCertificado() {
         return noCertificado;
     }
 
@@ -279,10 +279,10 @@ public class Comprobante {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public void setNoCertificado(Long value) {
+    public void setNoCertificado(String value) {
         this.noCertificado = value;
     }
 
@@ -435,10 +435,10 @@ public class Comprobante {
      * 
      * @return
      *     possible object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public Long getFolio() {
+    public String getFolio() {
         return folio;
     }
 
@@ -447,10 +447,10 @@ public class Comprobante {
      * 
      * @param value
      *     allowed object is
-     *     {@link Long }
+     *     {@link String }
      *     
      */
-    public void setFolio(Long value) {
+    public void setFolio(String value) {
         this.folio = value;
     }
 
@@ -669,22 +669,5 @@ public class Comprobante {
     public void setTipoDeComprobante(String value) {
         this.tipoDeComprobante = value;
     }
-
-	@Override
-	public String toString() {
-		return "Comprobante [emisor=" + emisor + ", receptor=" + receptor
-				+ ", conceptos=" + conceptos + ", impuestos=" + impuestos
-				+ ", complemento=" + complemento + ", certificado="
-				+ certificado + ", noCertificado=" + noCertificado
-				+ ", condicionesDePago=" + condicionesDePago + ", descuento="
-				+ descuento + ", subTotal=" + subTotal + ", formaDePago="
-				+ formaDePago + ", serie=" + serie + ", version=" + version
-				+ ", folio=" + folio + ", numCtaPago=" + numCtaPago
-				+ ", sello=" + sello + ", fecha=" + fecha
-				+ ", lugarExpedicion=" + lugarExpedicion + ", moneda=" + moneda
-				+ ", tipoCambio=" + tipoCambio + ", total=" + total
-				+ ", metodoDePago=" + metodoDePago + ", tipoDeComprobante="
-				+ tipoDeComprobante + "]";
-	}
 
 }

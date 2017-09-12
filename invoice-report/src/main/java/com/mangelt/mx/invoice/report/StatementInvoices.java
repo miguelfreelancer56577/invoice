@@ -81,17 +81,17 @@ public class StatementInvoices extends WorkBookXls {
 		
 		for (Comprobante comprobante : invoices) {
 			
-			if(comprobante.getEmisor().getRfc().equalsIgnoreCase("torm8908224f4")){
+			if(comprobante.getEmisor().getRfc() != null && comprobante.getEmisor().getRfc().equalsIgnoreCase("torm8908224f4")){
 				issued.add(comprobante);
 				continue;
 			}
 			
-			if(comprobante.getTipoDeComprobante().equalsIgnoreCase("egreso")){
+			if(comprobante.getTipoDeComprobante() !=null && comprobante.getTipoDeComprobante().equalsIgnoreCase("egreso")){
 				withoutEffect.add(comprobante);
 				continue;
 			}
 			
-			if(comprobante.getTipoDeComprobante().equalsIgnoreCase("ingreso") && comprobante.getReceptor().getRfc().equalsIgnoreCase("torm8908224f4")){
+			if(comprobante.getReceptor().getRfc() != null && comprobante.getTipoDeComprobante() != null && comprobante.getTipoDeComprobante().equalsIgnoreCase("ingreso") && comprobante.getReceptor().getRfc().equalsIgnoreCase("torm8908224f4")){
 				received.add(comprobante);
 				continue;
 			}
@@ -144,7 +144,7 @@ public class StatementInvoices extends WorkBookXls {
 				List<Traslado> impuestos = comprobante.getImpuestos().getTraslados().getTraslado();
 				
 				for (Traslado traslado : impuestos) {
-					if(traslado.getImpuesto().equalsIgnoreCase("Iva")){
+					if(traslado.getImpuesto().equalsIgnoreCase("Iva") || traslado.getImpuesto().equalsIgnoreCase("002")){
 						
 						rowhead.createCell(6).setCellValue(traslado.getImporte());
 						
