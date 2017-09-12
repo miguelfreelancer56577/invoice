@@ -144,7 +144,7 @@ public class StatementInvoices extends WorkBookXls {
 				List<Traslado> impuestos = comprobante.getImpuestos().getTraslados().getTraslado();
 				
 				for (Traslado traslado : impuestos) {
-					if(traslado.getImpuesto().equalsIgnoreCase("Iva")){
+					if(traslado.getImpuesto().equalsIgnoreCase("Iva") || traslado.getImpuesto().equalsIgnoreCase("002")){
 						
 						rowhead.createCell(6).setCellValue(traslado.getImporte());
 						
