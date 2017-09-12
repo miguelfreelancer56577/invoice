@@ -17,6 +17,24 @@ public class ChangerImpl implements Changer {
 	
 	public ChangerImpl(){
 		words.put(" {1}Certificado *={1}", " certificado=");
+		words.put(" {1}NoCertificado *={1}", " noCertificado=");
+		words.put(" {1}CondicionesDePago *={1}", " condicionesDePago=");
+		words.put(" {1}Descuento *={1}", " descuento=");
+		words.put(" {1}SubTotal *={1}", " subTotal=");
+		words.put(" {1}FormaDePago *={1}", " formaDePago=");
+		words.put(" {1}Serie *={1}", " serie=");
+		words.put(" {1}Version *={1}", " version=");
+		words.put(" {1}Folio *={1}", " folio=");
+		words.put(" {1}Sello *={1}", " sello=");
+		words.put(" {1}Fecha *={1}", " fecha=");
+		words.put(" {1}Total *={1}", " total=");
+		words.put(" {1}MetodoDePago *={1}", " metodoDePago=");
+		words.put(" {1}TipoDeComprobante *={1}", " tipoDeComprobante=");
+		words.put(" {1}Rfc *={1}", " rfc=");
+		words.put(" {1}Nombre *={1}", " nombre=");
+		words.put(" {1}ValorUnitario *={1}", " valorUnitario=");
+		words.put(" {1}Importe *={1}", " importe=");
+		words.put(" {1}Impuesto *={1}", " impuesto=");
 	}
 
 	public void changeWord(File concurrenteInvoice) throws IOException {
@@ -27,7 +45,7 @@ public class ChangerImpl implements Changer {
 		while((concurrentContent = bufferReader.readLine())!=null)
 		{
 			for (Map.Entry<String, String> entry : words.entrySet()) {
-				concurrentContent = concurrentContent.replaceFirst(entry.getKey(), entry.getValue());
+				concurrentContent = concurrentContent.replaceAll(entry.getKey(), entry.getValue());
 			}
 			allInvoice.append(concurrentContent);
 		}
