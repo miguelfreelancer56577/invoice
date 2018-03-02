@@ -45,9 +45,15 @@ public class ReaderImpl implements Reader {
 		
 		List<Comprobante> comprobantes = new  ArrayList<Comprobante>();
 		
+		int numInvoice = 1;
+		
 		for (File invoice : invoices) {
 			
 			Comprobante comprobante = this.readInvoice(invoice);
+			
+			System.out.println("Number: " + numInvoice + " " + invoices.toString() + " - " + comprobante.getCertificado());
+			
+			numInvoice++;
 			
 			if(comprobante != null){
 				comprobantes.add(comprobante);
@@ -63,9 +69,15 @@ public class ReaderImpl implements Reader {
 		
 		List<Comprobante> comprobantes = new  ArrayList<Comprobante>();
 		
+		int numInvoice = 1;
+		
 		for (File invoice : invoices) {
 			
 			Comprobante comprobante = this.readInvoice(invoice);
+			
+			System.out.println("Number: " + numInvoice + " " + invoices.toString() + " - " + comprobante.getCertificado());
+			
+			numInvoice++;
 			
 			if(comprobante != null){
 				comprobantes.add(comprobante);
