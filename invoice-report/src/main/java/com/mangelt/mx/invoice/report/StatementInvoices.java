@@ -2,7 +2,9 @@ package com.mangelt.mx.invoice.report;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.hssf.usermodel.HSSFRow;
 
@@ -25,9 +27,11 @@ public class StatementInvoices extends WorkBookXls {
 	
 	public float totalRecibido = 0;
 	
+	public Map<String, Integer> rowNumbers; 
+	
 	protected enum TypeInvoice {
 		
-		A("Emitidas"), B("Recibidas"), C("Egreso");
+		A("Emitidas"), B("Recibidas"), C("Egreso"), D("Sin contabilizar");
 		
 		String typeInvoice;
 		
@@ -79,6 +83,8 @@ public class StatementInvoices extends WorkBookXls {
 		
 		List<Comprobante> withoutEffect = new ArrayList<Comprobante>();
 		
+		List<Comprobante> other = new ArrayList<Comprobante>();
+		
 		for (Comprobante comprobante : invoices) {
 			
 			if(comprobante.getEmisor().getRfc() != null && comprobante.getEmisor().getRfc().equalsIgnoreCase("torm8908224f4")){
@@ -91,18 +97,29 @@ public class StatementInvoices extends WorkBookXls {
 				continue;
 			}
 			
-			if(comprobante.getReceptor().getRfc() != null && comprobante.getTipoDeComprobante() != null && comprobante.getTipoDeComprobante().equalsIgnoreCase("ingreso") && comprobante.getReceptor().getRfc().equalsIgnoreCase("torm8908224f4")){
+			if((comprobante.getReceptor().getRfc() != null && comprobante.getTipoDeComprobante() != null && comprobante.getReceptor().getRfc().equalsIgnoreCase("torm8908224f4")) && comprobante.getTipoDeComprobante().equalsIgnoreCase("ingreso") || comprobante.getTipoDeComprobante().equalsIgnoreCase("I") ){
 				received.add(comprobante);
 				continue;
 			}
 			
+			other.add(comprobante);
+			
 		}
+		
+		rowNumbers = new HashMap<String, Integer>(); 
+		
+		rowNumbers.put("issued", issued.size());
+		rowNumbers.put("received", received.size());
+		rowNumbers.put("withoutEffect", withoutEffect.size());
+		rowNumbers.put("other", other.size());
 		
 		positionRow = printContent(issued, positionRow, TypeInvoice.A) + 1;
 		
 		positionRow = printContent(received, positionRow, TypeInvoice.B) + 1;
 		
-		positionRow = printContent(withoutEffect, positionRow, TypeInvoice.C);
+		positionRow = printContent(withoutEffect, positionRow, TypeInvoice.C) + 1;
+		
+		positionRow = printContent(other, positionRow, TypeInvoice.D);
 		
 		declaration(positionRow);
 
@@ -110,16 +127,36 @@ public class StatementInvoices extends WorkBookXls {
 	
 	public void declaration(int endPosition){
 		
-		HSSFRow rowhead = sheet.createRow((short)endPosition);
+		HSSFRow rowhead = sheet.createRow((short)endPosition++);
 		rowhead.createCell(0).setCellValue("Iva a declarar");
 		rowhead.createCell(1).setCellValue(totalIvaEmitido - totalIvaRecibido);
-		rowhead = sheet.createRow((short)endPosition+1);
+		rowhead = sheet.createRow((short)endPosition++);
 		rowhead.createCell(0).setCellValue("Comparacion de gastos");
 		rowhead.createCell(1).setCellValue(totalEmitido - totalRecibido);
+		
+//		se saltan dos filas
+		rowhead = sheet.createRow((short)endPosition++);
+		rowhead.createCell(0).setCellValue("No. emitidas");
+		rowhead.createCell(1).setCellValue(rowNumbers.get("issued"));
+		rowhead = sheet.createRow((short)endPosition++);
+		rowhead.createCell(0).setCellValue("No. recibidas C/E:");
+		rowhead.createCell(1).setCellValue(rowNumbers.get("received"));
+		rowhead = sheet.createRow((short)endPosition++);
+		rowhead.createCell(0).setCellValue("No. recibidas S/E");
+		rowhead.createCell(1).setCellValue(rowNumbers.get("withoutEffect"));
+		rowhead = sheet.createRow((short)endPosition++);
+		rowhead.createCell(0).setCellValue("No. otras");
+		rowhead.createCell(1).setCellValue(rowNumbers.get("other"));
+		rowhead = sheet.createRow((short)endPosition++);
+		rowhead.createCell(0).setCellValue("No. facturas");
+		rowhead.createCell(1).setCellValue((rowNumbers.get("issued")+rowNumbers.get("received")+rowNumbers.get("withoutEffect")+rowNumbers.get("other")));
 		
 	}
 	
 	public int printContent(List<Comprobante> invoices, int startPosition, TypeInvoice typeInvoice){
+		
+		if(invoices.size()==0)
+			return startPosition;
 		
 		float totalIva = 0;
 		float totalMonto = 0;
